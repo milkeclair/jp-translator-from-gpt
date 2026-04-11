@@ -5,7 +5,6 @@ class TranslationAPI
     class OpenAI
       class Cost
         ONE_MILLION = 1_000_000
-        BASE_MODEL_COST = 1.25 / ONE_MILLION
 
         def initialize(model)
           @model = model
@@ -32,8 +31,8 @@ class TranslationAPI
         def base
           {
             @model.class.base => {
-              input: BASE_MODEL_COST,
-              output: BASE_MODEL_COST * normal_io_ratio[:output]
+              input: 2.50 / ONE_MILLION,
+              output: 15.00 / ONE_MILLION
             }
           }
         end
@@ -41,32 +40,19 @@ class TranslationAPI
         def mini
           {
             @model.class.mini => {
-              input: BASE_MODEL_COST / normal_cost_diff_ratio,
-              output: (BASE_MODEL_COST * normal_io_ratio[:output]) / normal_cost_diff_ratio
+              input: 0.75 / ONE_MILLION,
+              output: 4.50 / ONE_MILLION
             }
           }
         end
 
         def nano
-          mini_cost = mini.values[0][:input]
-
           {
             @model.class.nano => {
-              input: mini_cost / normal_cost_diff_ratio,
-              output: (mini_cost * normal_io_ratio[:output]) / normal_cost_diff_ratio
+              input: 0.20 / ONE_MILLION,
+              output: 1.25 / ONE_MILLION
             }
           }
-        end
-
-        def normal_io_ratio
-          {
-            input: 1.0,
-            output: 8.0
-          }
-        end
-
-        def normal_cost_diff_ratio
-          5.0
         end
       end
     end
