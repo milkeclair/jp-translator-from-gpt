@@ -35,7 +35,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency "deepl-rb"
   spec.add_dependency "dotenv"
   spec.add_dependency "faraday"
-  spec.add_dependency "ruby-openai"
+  spec.add_dependency "openai"
 
   # For more information and examples about making a new gem, check out our
   # guide at: https://bundler.io/guides/creating_gem.html
