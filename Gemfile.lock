@@ -11,6 +11,9 @@ GEM
   remote: https://rubygems.org/
   specs:
     ast (2.4.3)
+    base64 (0.3.0)
+    cgi (0.5.1)
+    connection_pool (3.0.2)
     date (3.5.1)
     debug (1.11.1)
       irb (~> 1.10)
@@ -41,6 +44,10 @@ GEM
     multipart-post (2.4.1)
     net-http (0.9.1)
       uri (>= 0.11.1)
+    openai (0.58.0)
+      base64
+      cgi
+      connection_pool
     parallel (2.0.1)
     parser (3.3.11.1)
       ast (~> 2.4.1)
@@ -115,9 +122,9 @@ DEPENDENCIES
   deepl-rb
   dotenv
   faraday
+  openai
   push_gem
   rake
-  ruby-openai
   translation_api!
 
 BUNDLED WITH

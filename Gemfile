@@ -12,4 +12,4 @@ gem "rake", require: false
 gem "deepl-rb"
 gem "dotenv"
 gem "faraday"
-gem "ruby-openai"
+gem "openai"

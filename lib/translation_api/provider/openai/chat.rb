@@ -24,7 +24,7 @@ class TranslationAPI
         private
 
         def request(text)
-          @client.chat(
+          @client.chat.completions.create(
             parameters: {
               model: @model.name,
               messages: [
@@ -36,7 +36,7 @@ class TranslationAPI
         end
 
         def init_client
-          ::OpenAI::Client.new(access_token: ENV["OPENAI_API_KEY"])
+          ::OpenAI::Client.new(api_key: ENV["OPENAI_API_KEY"])
         end
 
         def validate_api_key!
