@@ -24,19 +24,17 @@ class TranslationAPI
         private
 
         def request(text)
-          @client.chat(
-            parameters: {
-              model: @model.name,
-              messages: [
-                { role: "system", content: @prompt.system_prompt },
-                { role: "user", content: @prompt.user_prompt + text }
-              ]
-            }
+          @client.chat.completions.create(
+            model: @model.name,
+            messages: [
+              { role: "system", content: @prompt.system_prompt },
+              { role: "user", content: @prompt.user_prompt + text }
+            ]
           )
         end
 
         def init_client
-          ::OpenAI::Client.new(access_token: ENV["OPENAI_API_KEY"])
+          ::OpenAI::Client.new(api_key: ENV["OPENAI_API_KEY"])
         end
 
         def validate_api_key!

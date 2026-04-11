@@ -7,9 +7,9 @@ class TranslationAPI
     class OpenAI
       class Model < Llm::Model
         SUPPORTED_MODELS = [
-          "gpt-5",
-          "gpt-5-mini",
-          "gpt-5-nano"
+          "gpt-5.4",
+          "gpt-5.4-mini",
+          "gpt-5.4-nano"
         ].freeze
 
         def self.base
