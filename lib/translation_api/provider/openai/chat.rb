@@ -25,13 +25,11 @@ class TranslationAPI
 
         def request(text)
           @client.chat.completions.create(
-            parameters: {
-              model: @model.name,
-              messages: [
-                { role: "system", content: @prompt.system_prompt },
-                { role: "user", content: @prompt.user_prompt + text }
-              ]
-            }
+            model: @model.name,
+            messages: [
+              { role: "system", content: @prompt.system_prompt },
+              { role: "user", content: @prompt.user_prompt + text }
+            ]
           )
         end
 
